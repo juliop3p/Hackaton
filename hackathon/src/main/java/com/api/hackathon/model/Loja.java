@@ -1,5 +1,7 @@
 package com.api.hackathon.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,9 +32,12 @@ public class Loja {
 	@NotNull
 	private long longitude;
 	
+	@NotNull
+	private String imagem;
+	
 	@OneToMany(mappedBy = "loja", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("loja")
-	private Alimento alimento;
+	private List<Alimento> alimento;
 
 	//getters and setters
 	public long getIdLoja() {
@@ -75,11 +80,20 @@ public class Loja {
 		this.longitude = longitude;
 	}
 
-	public Alimento getAlimento() {
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
+	
+	public List<Alimento> getAlimento() {
 		return alimento;
 	}
 
-	public void setAlimento(Alimento alimento) {
+	public void setAlimento(List<Alimento> alimento) {
 		this.alimento = alimento;
 	}
 

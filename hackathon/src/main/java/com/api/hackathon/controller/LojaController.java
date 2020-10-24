@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.hackathon.model.Alimento;
 import com.api.hackathon.model.Loja;
 import com.api.hackathon.repository.LojaRepository;
 
@@ -34,17 +35,17 @@ public class LojaController {
 	}*/
 	
 	@PostMapping
-    public ResponseEntity<Loja> post(@RequestBody String nome) {
+    public ResponseEntity<Loja> post(@RequestBody Loja nome) {
          return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(nome));
     }
 
     @PutMapping
-    public ResponseEntity<Loja> put(@RequestBody String nome) {
+    public ResponseEntity<Loja> put(@RequestBody Loja nome) {
         return ResponseEntity.status(HttpStatus.OK).body(repository.save(nome));
     }
 
-    @DeleteMapping("/{nome}")
-    public void delete(@PathVariable String nome) {
-        repository.deleteByNome(nome);
+    @DeleteMapping("/{idLoja}")
+    public void delete(@PathVariable Long idLoja) {
+        repository.deleteById(idLoja);
     }
 }

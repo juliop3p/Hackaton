@@ -8,12 +8,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="Tipo")
 public class Alimento {
 	
-	@NotNull
-	private String nome;
+	/*@NotNull
+	private String nome;*/
+	
 	@NotNull
 	private String tipo;
 	
@@ -22,16 +25,17 @@ public class Alimento {
 	private long idAlimento;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("alimento")
 	private Loja loja;
 
 	//getters and setters
-	public String getNome() {
+	/*public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
+	}*/
 
 	public String getTipo() {
 		return tipo;

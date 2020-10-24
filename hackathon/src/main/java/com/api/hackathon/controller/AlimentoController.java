@@ -28,22 +28,22 @@ public class AlimentoController {
 	public ResponseEntity<List<Alimento>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
-	@GetMapping("/tipo/{tipo}")
+	@GetMapping("/{tipo}")
 	public ResponseEntity<List<Alimento>> GetByNome(@PathVariable String tipo){
 		return ResponseEntity.ok(repository.findAllByTipoContainingIgnoreCase(tipo));
 	}
 	@PostMapping
-    public ResponseEntity<Alimento> post(@RequestBody String tipo) {
+    public ResponseEntity<Alimento> post(@RequestBody Alimento tipo) {
          return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tipo));
     }
 
     @PutMapping
-    public ResponseEntity<Alimento> put(@RequestBody String tipo) {
+    public ResponseEntity<Alimento> put(@RequestBody Alimento tipo) {
         return ResponseEntity.status(HttpStatus.OK).body(repository.save(tipo));
     }
 
-    @DeleteMapping("/{tipo}")
-    public void delete(@PathVariable String tipo) {
-        repository.deleteByTipo(tipo);
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long idAlimento) {
+        repository.deleteById(idAlimento);
     }
 }
