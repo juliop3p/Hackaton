@@ -1,10 +1,12 @@
 package com.api.hackathon.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.hackathon.model.Alimento;
 import com.api.hackathon.model.Loja;
 import com.api.hackathon.repository.LojaRepository;
 
 @RestController
-@RequestMapping("/loja")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/lojas")
 public class LojaController {
 	@Autowired
 	private LojaRepository repository;
@@ -29,10 +31,10 @@ public class LojaController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	/*@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Loja>> GetByNome(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
-	}*/
+	@GetMapping("/{id}")
+	public ResponseEntity<Optional<Loja>> GetByNome(@PathVariable Long id){
+		return ResponseEntity.ok(repository.findById(id));
+	}
 	
 	@PostMapping
     public ResponseEntity<Loja> post(@RequestBody Loja nome) {

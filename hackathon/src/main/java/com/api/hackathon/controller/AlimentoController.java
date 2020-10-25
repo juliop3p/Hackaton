@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,8 @@ import com.api.hackathon.model.Alimento;
 import com.api.hackathon.repository.AlimentoRepository;
 
 @RestController
-@RequestMapping("/tipo")
+@RequestMapping("/tipos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AlimentoController {
 
 	@Autowired
@@ -43,7 +45,7 @@ public class AlimentoController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long idAlimento) {
-        repository.deleteById(idAlimento);
+    public void delete(@PathVariable Long id) {
+        repository.deleteById(id);
     }
 }

@@ -1,41 +1,33 @@
 package com.api.hackathon.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="Tipo")
+@Table(name = "Tipo")
 public class Alimento {
-	
-	/*@NotNull
-	private String nome;*/
-	
-	@NotNull
-	private String tipo;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idAlimento;
-	
-	@ManyToOne
+	private long id;
+
+	@NotNull
+	private String tipo;
+
+	// RELACIONAMENTO
+	@OneToMany(mappedBy = "alimento", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("alimento")
-	private Loja loja;
-
-	//getters and setters
-	/*public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}*/
+	private List<Loja> loja;
 
 	public String getTipo() {
 		return tipo;
@@ -45,19 +37,19 @@ public class Alimento {
 		this.tipo = tipo;
 	}
 
-	public long getIdAlimento() {
-		return idAlimento;
+	public long getId() {
+		return id;
 	}
 
-	public void setIdAlimento(long idAlimento) {
-		this.idAlimento = idAlimento;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public Loja getLoja() {
+	public List<Loja> getLoja() {
 		return loja;
 	}
 
-	public void setLoja(Loja loja) {
+	public void setLoja(List<Loja> loja) {
 		this.loja = loja;
 	}
 
