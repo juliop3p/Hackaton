@@ -14,12 +14,11 @@ function home() {
             <img src={hero} alt="Pineapple" />
           </div>
           <div className="titulo">
-            <h1>Tenha uma vida mais saudável com a HackLife</h1>
+            <h1>Tenha uma vida mais saudável com a Healffy</h1>
             <p>
               Descubra as melhores feiras perto de você, com os melhores
               produtos naturais e de qualidade com um preço acessível{" "}
             </p>
-            {/* <Link to="/map">Mapa</Link> */}
             <ButtonsContainer>
               <Link to="/map">
                 <FaMapMarker size={40} />

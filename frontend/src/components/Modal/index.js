@@ -3,7 +3,7 @@ import { FaTimes, FaMapMarker, FaCity, FaClock, FaPhone } from "react-icons/fa";
 
 import { Container, ModalMarket, Labels } from "./styles";
 
-function Modal({ close, data }) {
+function Modal({ close, data, alimento }) {
   return (
     <Container>
       <ModalMarket>
@@ -34,7 +34,7 @@ function Modal({ close, data }) {
         <hr />
         <Labels>
           <strong>Items: </strong>
-          <span>{data.alimento.tipo}</span>
+          <span>{data.alimento ? data.alimento.tipo : alimento}</span>
         </Labels>
       </ModalMarket>
     </Container>

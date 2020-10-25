@@ -63,15 +63,17 @@ function Map() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [address, setAddress] = useState("");
+  const [alimento, setAlimento] = useState("");
   const [places, setPlaces] = useState([]);
   const [modalData, setModalData] = useState({});
 
-  const handleCategory = (id, vegetais) => {
+  const handleCategory = (id, alimento) => {
+    setAlimento(alimento);
     const loadPlaces = async () => {
       const data = await api.get(
-        vegetais === "Todas" ? "/lojas" : `/tipos/${vegetais}`
+        alimento === "Todas" ? "/lojas" : `/tipos/${alimento}`
       );
-      setPlaces(vegetais === "Todas" ? data.data : data.data[0].loja);
+      setPlaces(alimento === "Todas" ? data.data : data.data[0].loja);
     };
     loadPlaces();
     setCategories(
@@ -135,7 +137,11 @@ function Map() {
     <div className="container-fluid">
       <div className="row">
         {isModalOpen && (
-          <Modal close={() => setIsModalOpen(false)} data={modalData} />
+          <Modal
+            close={() => setIsModalOpen(false)}
+            data={modalData}
+            alimento={alimento}
+          />
         )}
         <Search className={isNavOpen ? "col d-flex" : "col-4 d-md-flex d-none"}>
           <div>
