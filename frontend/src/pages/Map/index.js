@@ -4,6 +4,8 @@ import axios from "axios";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { FaSearch, FaBars } from "react-icons/fa";
 
+import api from "../../service/api";
+
 import fruitImg from "../../assets/images/fruitimg.png";
 import vegetableImg from "../../assets/images/vegetable.svg";
 import FruitsImg from "../../assets/images/fruits.svg";
@@ -61,8 +63,17 @@ function Map() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [address, setAddress] = useState("");
+  const [places, setPlaces] = useState([]);
+  const [modalData, setModalData] = useState({});
 
-  const handleCategory = id => {
+  const handleCategory = (id, vegetais) => {
+    const loadPlaces = async () => {
+      const data = await api.get(
+        vegetais === "Todas" ? "/lojas" : `/tipos/${vegetais}`
+      );
+      setPlaces(vegetais === "Todas" ? data.data : data.data[0].loja);
+    };
+    loadPlaces();
     setCategories(
       categories.map(category => {
         category.active = category.id === id ? true : false;
@@ -82,6 +93,11 @@ function Map() {
       height: "100vh",
       zoom: 13,
     });
+  };
+
+  const handleModal = place => {
+    setModalData(place);
+    setIsModalOpen(true);
   };
 
   useEffect(() => {
@@ -105,10 +121,20 @@ function Map() {
     );
   }, []);
 
+  useEffect(() => {
+    const loadPlaces = async () => {
+      const data = await api.get("/lojas");
+      setPlaces(data.data);
+    };
+    loadPlaces();
+  }, []);
+
   return (
     <div className="container-fluid">
       <div className="row">
-        {isModalOpen && <Modal close={() => setIsModalOpen(false)} />}
+        {isModalOpen && (
+          <Modal close={() => setIsModalOpen(false)} data={modalData} />
+        )}
         <Search className={isNavOpen ? "col d-flex" : "col-4 d-md-flex d-none"}>
           <div>
             <InputSearch>
@@ -153,11 +179,17 @@ function Map() {
             mapStyle="mapbox://styles/juliop3p/ckgnykuqn0mef1aqoir873wzv"
             onViewportChange={viewport => setViewport(viewport)}
           >
-            <Marker latitude={-23.5649224} longitude={-46.6541263}>
-              <MarkerIcon onClick={() => setIsModalOpen(true)}>
-                <img src={fruitImg} alt="Sacolão do seu Zé" />
-              </MarkerIcon>
-            </Marker>
+            {places.map(place => (
+              <Marker
+                latitude={Number(place.latitude)}
+                longitude={Number(place.longitude)}
+                key={place.id}
+              >
+                <MarkerIcon onClick={() => handleModal(place)}>
+                  <img src={fruitImg} alt="Sacolão do seu Zé" />
+                </MarkerIcon>
+              </Marker>
+            ))}
           </ReactMapGL>
         </MapStyle>
       </div>

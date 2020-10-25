@@ -6,7 +6,7 @@ function Item({ category, handleClick }) {
   return (
     <ItemSearch
       active={category.active}
-      onClick={() => handleClick(category.id)}
+      onClick={() => handleClick(category.id, category.name)}
     >
       <img src={category.img} alt={category.name} />
       <strong>{category.name}</strong>
