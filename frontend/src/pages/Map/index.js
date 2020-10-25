@@ -80,6 +80,7 @@ function Map() {
         return category;
       })
     );
+    setIsNavOpen(false);
   };
 
   const handleAddress = async () => {
@@ -93,6 +94,7 @@ function Map() {
       height: "100vh",
       zoom: 13,
     });
+    setIsNavOpen(false);
   };
 
   const handleModal = place => {

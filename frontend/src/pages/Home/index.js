@@ -1,11 +1,13 @@
 import React from "react";
+import { FaMapMarker, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ButtonsContainer } from "./styles";
 import "./styles.css";
 import hero from "./img/abacaxi.png";
 
 function home() {
   return (
-    <>
+    <div className="body">
       <header>
         <div>
           <div>
@@ -17,7 +19,17 @@ function home() {
               Descubra as melhores feiras perto de você, com os melhores
               produtos naturais e de qualidade com um preço acessível{" "}
             </p>
-            <Link to="/map">Mapa</Link>
+            {/* <Link to="/map">Mapa</Link> */}
+            <ButtonsContainer>
+              <Link to="/map">
+                <FaMapMarker size={40} />
+                Ver o mapa
+              </Link>
+              <Link to="/create-point">
+                <FaPlus size={40} />
+                Cadastrar um local
+              </Link>
+            </ButtonsContainer>
           </div>
         </div>
       </header>
@@ -77,7 +89,7 @@ function home() {
           </form>
         </section>
       </main>
-    </>
+    </div>
   );
 }
 

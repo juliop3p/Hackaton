@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background: #1d976c; /* fallback for old browsers */
+  height: 100%auto;
   background: -webkit-linear-gradient(
     to right,
     #93f9b9,

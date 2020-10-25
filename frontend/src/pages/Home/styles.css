@@ -4,7 +4,7 @@ html {
   background: rgb(236, 244, 255);
 }
 
-body {
+.body {
   margin: 0;
   padding: 0px;
   font-family: Lato, sans-serif;
@@ -43,6 +43,7 @@ nav ul {
 }
 
 nav ul li a {
+  border: none;
   text-decoration: none;
   color: #111;
 }
