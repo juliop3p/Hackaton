@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+html {
+  background: rgb(236, 244, 255);
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+  font-family: Lato, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding-bottom: 320px;
+  background-image: url("./Group_3.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+body * {
+  transition: all 500ms ease-in-out;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  margin: 0 auto;
+  justify-content: space-between;
+  color: #111;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0px;
+  margin: 10px 0px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #111;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+nav ul:first-of-type li:first-of-type {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+header {
+  position: relative;
+  margin: 0em 10em 0em 10em;
+}
+
+header div {
+  padding-top: 50px;
+}
+
+header div h1 {
+  font-size: 75px;
+  width: 60%;
+}
+
+header div p {
+  font-size: 30px;
+  line-height: 40px;
+  width: 60%;
+}
+
+header img {
+  position: absolute;
+  z-index: 2;
+  width: 30%;
+  right: 0%;
+  top: 40px;
+}
+
+header div a {
+  padding: 20px;
+  display: block;
+  margin-top: 40px;
+  width: 300px;
+  border-radius: 40px;
+  color: #eee;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+
+header div a,
+.newsletter input[type="submit"] {
+  border: 1px solid blue;
+  color: blue;
+}
+
+header div a:hover,
+.newsletter input[type="submit"]:hover {
+  background: blue;
+  color: #eee;
+}
+
+main {
+  padding-top: 100px;
+}
+
+h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 40px;
+  color: rgb(12, 0, 116);
+}
+
+.services {
+  margin-top: 300px;
+}
+
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 40px 0px 180px 0px;
+  position: relative;
+}
+
+.services-card {
+  width: 40%;
+  height: 400px;
+  background: #222;
+  display: inline-block;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 52px -19px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 52px -19px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 52px -19px rgba(0, 0, 0, 0.75);
+}
+
+.service-description {
+  width: 40%;
+  font-size: 23px;
+}
+
+.description {
+  text-align: justify;
+}
+
+.service-one {
+  background: url("./img/fruit.jpg") center;
+}
+
+.service-two {
+  background: url("./img/saude.jpg") top;
+}
+
+.service-three {
+  background: url("./img/map.jpg") center;
+}
+
+.service-one,
+.service-two,
+.service-three {
+  background-size: 100% !important;
+}
+
+section h2 {
+  text-align: center;
+}
+
+.newsletter {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletter * {
+  padding: 20px;
+  border-radius: 40px;
+  border: none;
+  margin: 0px;
+  background: none;
+  font-size: 20px;
+}
+
+.newsletter input[type="email"] {
+  width: 60%;
+  display: inline-block;
+  border: 1px solid #222;
+
+  margin-right: 20px;
+}
+
+.newsletter input[type="submit"] {
+  width: 170px;
+  color: blue;
+
+  cursor: pointer;
+}
+
+.thanks {
+  font-size: 30px;
+  width: 70%;
+  margin: 120px auto;
+  text-align: center;
+}
+
+.contact {
+  width: 60%;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.contact * {
+  width: 100%;
+  padding: 20px 0px;
+  display: block;
+  border-radius: 10px;
+}
+.contact input,
+.contact textarea {
+  text-indent: 30px;
+  border: 1px solid #eee;
+}
+
+.contact input[type="submit"] {
+  background: blue;
+  width: 30%;
+  text-indent: 0px;
+  color: #eee;
+  font-size: 20px;
+  border-radius: 40px;
+  margin: 40px 0px 0px auto;
+}
+
+.back {
+  background: none;
+  padding: 10px;
+  border: none;
+  border-bottom: 3px solid blue;
+  font-size: 14px;
+  margin-top: 50px;
+  cursor: pointer;
+  color: blue;
+}
+section {
+  margin: 0em 4em 0em 4em;
+}
+
+@media screen and (max-width: 1600px) {
+  header img {
+    width: 30%;
+    top: 150px;
+  }
+}
+
+@media screen and (max-width: 1380px) {
+  header img {
+    width: 25%;
+    top: 200px;
+  }
+
+  header div p {
+    font-size: 30px;
+    line-height: 40px;
+    width: 60%;
+  }
+  .service-one,
+  .service-two,
+  .service-three {
+    background-size: 120% !important;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  header {
+    position: relative;
+    margin: 0em 2em 0em 2em;
+  }
+  header img {
+    width: 25%;
+    top: 250px;
+  }
+
+  header div h1 {
+    font-size: 55px;
+    width: 70%;
+  }
+
+  header div p {
+    width: 400px;
+    width: 70%;
+  }
+
+  section h2 {
+    margin-top: 2em;
+    font-size: 30px;
+  }
+
+  .service-container {
+    display: block;
+    margin: 0em 2em 0em 2em;
+  }
+  h3 {
+    font-size: 27px;
+    color: rgb(12, 0, 116);
+  }
+  .services-card {
+    width: 100%;
+    height: 400px;
+  }
+
+  .service-description {
+    width: 100%;
+    font-size: 15px;
+  }
+  .service-one,
+  .service-two,
+  .service-three {
+    background-size: 100% !important;
+  }
+
+  .contact input[type="submit"] {
+    width: 40%;
+  }
+  .newsletter {
+    width: 100%;
+  }
+
+  main {
+    padding-top: 0px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  header img {
+    width: 0%;
+  }
+  header div h1 {
+    font-size: 45px;
+    width: 100%;
+  }
+
+  header div p {
+    font-size: 20px;
+    width: 400px;
+    width: 100%;
+  }
+
+  .service-one,
+  .service-two,
+  .service-three {
+    background-size: 100% !important;
+    height: 200px;
+    margin-top: 5em;
+  }
+
+  .newsletter input[type="email"] {
+    width: 100%;
+  }
+
+  .newsletter input[type="submit"] {
+    margin-top: 40px;
+  }
+
+  .contact {
+    width: 90%;
+  }
+
+  .contact input[type="submit"] {
+    width: 100%;
+    margin: 40px 0px;
+  }
+  section {
+    margin: 0em 2em 2em 2em;
+  }
+}
